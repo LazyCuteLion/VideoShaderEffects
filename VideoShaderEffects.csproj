@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Alpha\AlphaEffect.ps" />
+    <None Remove="Shaders\TileEffect.ps" />
+    <None Remove="VR\VrEffect.ps" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Shaders\AlphaEffect.ps" />
+    <Resource Include="Shaders\TileEffect.ps" />
+    <Resource Include="Shaders\VrEffect.ps" />
+  </ItemGroup>
+
+</Project>
