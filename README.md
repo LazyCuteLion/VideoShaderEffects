@@ -1,0 +1,17 @@
+# WPF使用ShaderEffect播放VR视频、透明视频，以及把视频以网格平铺
+Shaders文件夹下为编译好的像素着色器，可以使用Shazzam自行编译添加
+## 1、视频平铺
+![视频平铺](https://github.com/LazyCuteLion/VideoShaderEffects/blob/master/Images/Snipaste_2025-11-22_11-53-12.png)
+## 2、透明视频：
+
+需平铺2个画面，RGB+Alpha-Gray，可以放置左、上、右、下
+
+![示例图片](https://private-user-images.githubusercontent.com/12544486/513774836-72fc51bb-3932-4e40-bcc0-743d5498006e.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjM3ODM1NTMsIm5iZiI6MTc2Mzc4MzI1MywicGF0aCI6Ii8xMjU0NDQ4Ni81MTM3NzQ4MzYtNzJmYzUxYmItMzkzMi00ZTQwLWJjYzAtNzQzZDU0OTgwMDZlLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTIyVDAzNDczM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg2MmEzMzA2NmI3MDFkODQxMDg5NjNiY2U2OGFhNTNkYTM3Y2E2MTMzMGQ0MWI5YjZkMzBiYjcyMWM5MjIzNWMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.poseKhX7rVt5ERqRXZyJsi2oKTGa_MgeTWmZe3wzGYc)
+
+视频流写入元数据，以便程序可以识别
+
+推荐选择MKV（可以写入自定义元数据key），alhpa_position="[position]"（ffmpeg -i input.mp4 -metadata alpha_position="left" output.mkv）
+
+若是MP4，则需写入comment（comment="alpha_position:[position]"）
+
+[这里有一些测试视频](https://github.com/SuRGeoNix/Flyleaf/issues/656)
